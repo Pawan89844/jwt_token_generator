@@ -38,6 +38,17 @@ Map<String, dynamic> payload = {
 String token = await jwt.generateToken(payload: payload, secretKey: 'SampleKey');
 ```
 
+## To validate JWT
+
+1. Instantiate JWT class.
+2. Use validate JWT method.
+
+```dart
+JWT jwt = JWT();
+bool isValidated = await jwt.verifyTokey(token: token, secretKey: secretKey);
+print(isValidated);// True or False
+```
+
 ## Additional information
 
 Currently supported algorithm: HS256
