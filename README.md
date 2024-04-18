@@ -11,29 +11,35 @@ and the Flutter guide for
 [developing packages and plugins](https://flutter.dev/developing-packages). 
 -->
 
-TODO: Put a short description of the package here that helps potential users
-know whether this package might be useful for them.
+A JWT token generator package for flutter and dart.
 
 ## Features
 
-TODO: List what your package can do. Maybe include images, gifs, or videos.
+Generate HS256 algorithm jwt token.
 
 ## Getting started
 
-TODO: List prerequisites and provide or point to information on how to
-start using the package.
+Add the depency to pubspec.yaml and start using its methods.
 
 ## Usage
 
-TODO: Include short and useful examples for package users. Add longer examples
-to `/example` folder. 
+1. Instantiate JWT class.
+2. Declare the payload.
+3. Use generateToken method.
 
 ```dart
-const like = 'sample';
+JWT jwt = JWT();
+Map<String, dynamic> payload = {
+    'iss': 'localhost',
+    'exp': DateTime.now().add(Duration(hours: 1)).millisecondsSinceEpoch / 1000,
+    'id': 1,
+    'fullname': 'User name'
+};
+String token = await jwt.generateToken(payload: payload, secretKey: 'SampleKey');
 ```
 
 ## Additional information
 
-TODO: Tell users more about the package: where to find more information, how to 
-contribute to the package, how to file issues, what response they can expect 
-from the package authors, and more.
+Currently supported algorithm: HS256
+will be adding more algorithm soon or if you want to contribute you are welcome.
+
